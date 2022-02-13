@@ -57,12 +57,15 @@ figure
 for i = 1 : iterations
     C = rad(A2)./2;
     A2 = infsup(inf(A2) + C, sup(A2) - C);
-    [~, argMax, ~, ~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
-    plot(argMax(1), argMax(2), '*b');
+    [tolMax, argMax, ~, ~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
+    %plot(argMax(1), argMax(2), '*b');
+    plot(i, tolMax, '*b');
     hold on
+    tolMax
+    argMax
 end
 grid on
-title("Tol maximum position")
+title("Tol value")
 
 % Tol maximum position due to the matrix line by line
 line1 = [1, 1; 0, 0; 0, 0];
