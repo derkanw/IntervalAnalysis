@@ -58,20 +58,17 @@ for i = 1 : iterations
     C = rad(A2)./2;
     A2 = infsup(inf(A2) + C, sup(A2) - C);
     [tolMax, argMax, ~, ~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
-    %plot(argMax(1), argMax(2), '*b');
-    plot(i, tolMax, '*b');
+    plot3(argMax(1), argMax(2), tolMax, '*b');
     hold on
-    tolMax
-    argMax
 end
 grid on
-title("Tol value")
+title("Tol maximum")
 
 % Tol maximum position due to the matrix line by line
 line1 = [1, 1; 0, 0; 0, 0];
 line2 = [0, 0; 1, 1; 0, 0];
 line3 = [0, 0; 0, 0; 1, 1];
-drawTolMax(A, b, line1, iterations, "Tol maximum position by the first line")
-drawTolMax(A, b, line2, iterations, "Tol maximum position by the second line")
-drawTolMax(A, b, line3, iterations, "Tol maximum position by the third line")
+drawTolMax(A, b, line1, iterations, "Tol maximum by the first line")
+drawTolMax(A, b, line2, iterations, "Tol maximum by the second line")
+drawTolMax(A, b, line3, iterations, "Tol maximum by the third line")
 
