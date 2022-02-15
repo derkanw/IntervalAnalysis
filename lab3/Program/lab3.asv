@@ -11,7 +11,7 @@ disp("Original matrix")
 tolMax
 argMax
 figure
-drawContour(A, b)
+drawContour(A, b, argMax)
 plot(argMax(1), argMax(2), '*b');
 title("Original ISLAU")
 
@@ -63,10 +63,11 @@ plotintval([iveBox2, rveBox2], 'n');
 iterations = 10;
 A2 = A;
 figure
-drawContour(A2, b)
+de
 for i = 1 : iterations
     C = rad(A2)./2;
     A2 = infsup(inf(A2) + C, sup(A2) - C);
+    drawContour(A2, )
     [tolMax, argMax, ~, ~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
     plot(argMax(1), argMax(2), '*b');
 end

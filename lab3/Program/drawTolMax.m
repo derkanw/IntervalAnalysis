@@ -1,5 +1,6 @@
 function [] = drawTolMax(A, b, line, iterations, name)
 figure
+drawContour(A, b)
 for i = 1 : iterations
     C = rad(A)./2 .*line;
     A = infsup(inf(A) + C, sup(A) - C);

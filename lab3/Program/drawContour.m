@@ -1,4 +1,4 @@
-function [] = drawContour(A, b, argMax, name)
+function [] = drawContour(A, b)
 levels = 30;
 n = 100;
 Tol = @(A1, b1, x) min(rad(b1) - mag(mid(b1) - A1 * x));
@@ -12,11 +12,8 @@ for i = 1 : size(xx, 1)
         zz(i, j) = Tol(A, b, X);
     end
 end
-figure
-title(name)
 [~, ~, ~, ~, ~] = EqnTolR2(inf(A), sup(A), inf(b), sup(b));
 hold on
 contour(xx, yy, zz, levels)
-plot(argMax(1), argMax(2), 'r*');
 end
 
