@@ -9,9 +9,11 @@ X = [ x.^0 x ];
 start = [-inf 0];                                
 beta = ir_problem(X, y, epsilon, start);
 intB = ir_outer(beta);
-
+beta
 % Beta estimate
 [rhoB, b1, b2] = ir_betadiam(beta);
+b1
+b2
 maxdiag = (b1 + b2) / 2;
 gravity = mean(ir_beta2poly(beta));
 lsm = (X \ y)';
